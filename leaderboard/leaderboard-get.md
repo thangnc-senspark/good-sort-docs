@@ -24,13 +24,13 @@
 
 ### `LeaderboardType`
 
-| Giá trị          | Mô tả                                                                 | 
-|------------------|-----------------------------------------------------------------------|
-| `ALL_PLAYER`     | Xếp hạng tất cả người chơi theo điểm tổng (level cao nhất đạt được)  | 
-| `WEEKLY_PLAYER`  | Xếp hạng theo số level đạt được trong tuần hiện tại                  | 
-| `ALL_TEAM`       | Xếp hạng theo tổng điểm của đội                                       | 
+| Giá trị          | Mô tả                                                                                      |
+|------------------|--------------------------------------------------------------------------------------------|
+| `ALL_PLAYER`     | Xếp hạng tất cả người chơi theo điểm tổng (level cao nhất đạt được)                       |
+| `WEEKLY_PLAYER`  | Xếp hạng theo số level đạt được trong tuần hiện tại — trả về nhóm (group) của người chơi |
+| `ALL_TEAM`       | Xếp hạng theo tổng điểm của đội                                                            |
 
-> `ALL_TEAM` chưa được triển khai, trả về danh sách rỗng.
+> `ALL_TEAM` chưa được triển khai qua handler này, trả về danh sách rỗng.
 
 ### `LeaderboardScope`
 
@@ -77,11 +77,12 @@
 
 | Trường           | Kiểu                          | Mô tả                                                          |
 |------------------|-------------------------------|----------------------------------------------------------------|
-| `leaderboardType`| `LeaderboardType`             | Loại bảng xếp hạng được trả về                                 |
-| `entries`        | `List<PlayerLeaderboardEntry>`| Danh sách người chơi trên bảng (tối đa 200 với ALL_PLAYER, 20 với WEEKLY_PLAYER) |
-| `myEntry`        | `PlayerLeaderboardEntry?`     | Vị trí của người chơi hiện tại. `null` nếu chưa có điểm       |
-| `weekStartDate`  | `Long?`                       | Timestamp (ms) bắt đầu tuần. Chỉ có với `WEEKLY_PLAYER`       |
-| `weekEndDate`    | `Long?`                       | Timestamp (ms) kết thúc tuần. Chỉ có với `WEEKLY_PLAYER`      |
+| `leaderboardType`| `LeaderboardType`             | Loại bảng xếp hạng được trả về                                                  |
+| `entries`        | `List<PlayerLeaderboardEntry>`| Danh sách người chơi trên bảng (tối đa 100 với ALL_PLAYER; tối đa 20 với WEEKLY_PLAYER) |
+| `myEntry`        | `PlayerLeaderboardEntry?`     | Vị trí của người chơi hiện tại. `null` nếu chưa có điểm                         |
+| `weekStartDate`  | `Long?`                       | Timestamp (ms) bắt đầu tuần. Chỉ có với `WEEKLY_PLAYER`                         |
+| `weekEndDate`    | `Long?`                       | Timestamp (ms) kết thúc tuần. Chỉ có với `WEEKLY_PLAYER`                        |
+| `groupId`        | `Int?`                        | ID nhóm leaderboard của người chơi. Chỉ có với `WEEKLY_PLAYER`                  |
 
 ### `PlayerLeaderboardEntry`
 
@@ -109,5 +110,6 @@
 
 - **Điểm số (ALL_PLAYER):** Bằng giá trị `CurrentLevel` cao nhất người chơi từng đạt được. Điểm chỉ tăng, không bao giờ giảm.
 - **Điểm số (WEEKLY_PLAYER):** Bằng số level người chơi đạt được trong tuần (= level hiện tại − level tại thời điểm bắt đầu tuần). Tuần tính từ **thứ Hai 00:00 UTC** đến **Chủ Nhật 23:59:59 UTC**.
+- **Nhóm (WEEKLY_PLAYER):** Danh sách `entries` chỉ gồm những người chơi trong cùng nhóm (`groupId`) — tối đa 20 người. Nhóm được phân bổ tự động khi người chơi tham gia tuần. `groupId` trả về kèm trong response.
 - **Caching:** Danh sách top được cache **5 phút**. Vị trí của bản thân (`myEntry`) luôn được tính theo thời gian thực nếu không nằm trong top cache.
 - Nếu người chơi chưa bao giờ lưu dữ liệu game, `myEntry` sẽ là `null`.

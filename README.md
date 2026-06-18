@@ -82,6 +82,6 @@ Server sử dụng WebSocket để giao tiếp real-time. Mỗi handler xử lý
 | `game_data/save`         | [game-data-save.md](game_data/game-data-save.md)              | Có       | Lưu dữ liệu game                            |
 | `cheat/delete_user_data` | [cheat-delete-user-data.md](cheat/cheat-delete-user-data.md)  | Có       | Xóa toàn bộ dữ liệu người dùng *(dev only)* |
 | `leaderboard/get_leaderboard`       | [leaderboard-get.md](leaderboard/leaderboard-get.md)                               | Có       | Lấy bảng xếp hạng (all-time hoặc tuần)      |
-| `leaderboard/get_last_week_leaderboard` | [leaderboard-get-last-week.md](leaderboard/leaderboard-get-last-week.md)       | Có       | Lấy bảng xếp hạng tuần trước                |
+| `leaderboard/get_previous_weekly_leaderboard` | [leaderboard-get-last-week.md](leaderboard/leaderboard-get-last-week.md) | Có       | Lấy bảng xếp hạng tuần chỉ định theo nhóm   |
 | `leaderboard/get_remaining_time`    | [leaderboard-remaining-time.md](leaderboard/leaderboard-remaining-time.md)         | Có       | Thời gian còn lại của tuần xếp hạng         |
 | `cheat/reset_leaderboard`           | [cheat-reset-leaderboard.md](cheat/cheat-reset-leaderboard.md)                     | Có       | Reset bảng xếp hạng tuần *(dev only)*       |
