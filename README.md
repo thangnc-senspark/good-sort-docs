@@ -69,19 +69,20 @@ Server sử dụng WebSocket để giao tiếp real-time. Mỗi handler xử lý
 
 ## Danh sách Handler
 
-| Lệnh (`cmd`)             | File                                                          | Xác thực | Mô tả                                       |
-|--------------------------|---------------------------------------------------------------|----------|---------------------------------------------|
-| `login`                  | [login.md](login.md)                                          | Không    | Đăng nhập / tạo tài khoản                   |
-| `ping`                   | [ping.md](ping.md)                                            | Có       | Kiểm tra kết nối                            |
-| `account/can_link`       | [account-can-link.md](accounts/account-can-link.md)           | Có       | Kiểm tra khả năng liên kết tài khoản        |
-| `account/link`           | [account-link.md](accounts/account-link.md)                   | Có       | Liên kết tài khoản Google                   |
-| `account/delete_link`    | [account-delete-link.md](accounts/account-delete-link.md)     | Có       | Gỡ liên kết Google                          |
-| `account/delete`         | [account-delete.md](accounts/account-delete.md)               | Có       | Đánh dấu xóa tài khoản                      |
-| `account/cancel_delete`  | [account-cancel-delete.md](accounts/account-cancel-delete.md) | Có       | Hủy xóa tài khoản                           |
-| `game_data/get`          | [game-data-get.md](game_data/game-data-get.md)                | Có       | Lấy dữ liệu game                            |
-| `game_data/save`         | [game-data-save.md](game_data/game-data-save.md)              | Có       | Lưu dữ liệu game                            |
-| `cheat/delete_user_data` | [cheat-delete-user-data.md](cheat/cheat-delete-user-data.md)  | Có       | Xóa toàn bộ dữ liệu người dùng *(dev only)* |
-| `leaderboard/get_leaderboard`       | [leaderboard-get.md](leaderboard/leaderboard-get.md)                               | Có       | Lấy bảng xếp hạng (all-time hoặc tuần)      |
-| `leaderboard/get_previous_weekly_leaderboard` | [leaderboard-get-last-week.md](leaderboard/leaderboard-get-last-week.md) | Có       | Lấy bảng xếp hạng tuần chỉ định theo nhóm   |
-| `leaderboard/get_remaining_time`    | [leaderboard-remaining-time.md](leaderboard/leaderboard-remaining-time.md)         | Có       | Thời gian còn lại của tuần xếp hạng         |
-| `cheat/reset_leaderboard`           | [cheat-reset-leaderboard.md](cheat/cheat-reset-leaderboard.md)                     | Có       | Reset bảng xếp hạng tuần *(dev only)*       |
+| Lệnh (`cmd`)                                  | File                                                                       | Xác thực | Mô tả                                       |
+|-----------------------------------------------|----------------------------------------------------------------------------|----------|---------------------------------------------|
+| `login`                                       | [login.md](login.md)                                                       | Không    | Đăng nhập / tạo tài khoản                   |
+| `ping`                                        | [ping.md](ping.md)                                                         | Có       | Kiểm tra kết nối                            |
+| `account/can_link`                            | [account-can-link.md](accounts/account-can-link.md)                        | Có       | Kiểm tra khả năng liên kết tài khoản        |
+| `account/link`                                | [account-link.md](accounts/account-link.md)                                | Có       | Liên kết tài khoản Google                   |
+| `account/delete_link`                         | [account-delete-link.md](accounts/account-delete-link.md)                  | Có       | Gỡ liên kết Google                          |
+| `account/delete`                              | [account-delete.md](accounts/account-delete.md)                            | Có       | Đánh dấu xóa tài khoản                      |
+| `account/cancel_delete`                       | [account-cancel-delete.md](accounts/account-cancel-delete.md)              | Có       | Hủy xóa tài khoản                           |
+| `account/get_profile`                         | [get-user-profile.md](profile/get-user-profile.md)                         | Có       | Lấy hồ sơ người chơi (màn hình Profile)     |
+| `game_data/get`                               | [game-data-get.md](game_data/game-data-get.md)                             | Có       | Lấy dữ liệu game                            |
+| `game_data/save`                              | [game-data-save.md](game_data/game-data-save.md)                           | Có       | Lưu dữ liệu game                            |
+| `cheat/delete_user_data`                      | [cheat-delete-user-data.md](cheat/cheat-delete-user-data.md)               | Có       | Xóa toàn bộ dữ liệu người dùng *(dev only)* |
+| `leaderboard/get_leaderboard`                 | [leaderboard-get.md](leaderboard/leaderboard-get.md)                       | Có       | Lấy bảng xếp hạng (all-time hoặc tuần)      |
+| `leaderboard/get_previous_weekly_leaderboard` | [leaderboard-get-last-week.md](leaderboard/leaderboard-get-last-week.md)   | Có       | Lấy bảng xếp hạng tuần chỉ định theo nhóm   |
+| `leaderboard/get_remaining_time`              | [leaderboard-remaining-time.md](leaderboard/leaderboard-remaining-time.md) | Có       | Thời gian còn lại của tuần xếp hạng         |
+| `cheat/reset_leaderboard`                     | [cheat-reset-leaderboard.md](cheat/cheat-reset-leaderboard.md)             | Có       | Reset bảng xếp hạng tuần *(dev only)*       |
