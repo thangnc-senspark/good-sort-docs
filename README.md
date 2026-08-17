@@ -86,3 +86,17 @@ Server sử dụng WebSocket để giao tiếp real-time. Mỗi handler xử lý
 | `leaderboard/get_previous_weekly_leaderboard` | [leaderboard-get-last-week.md](leaderboard/leaderboard-get-last-week.md)   | Có       | Lấy bảng xếp hạng tuần chỉ định theo nhóm   |
 | `leaderboard/get_remaining_time`              | [leaderboard-remaining-time.md](leaderboard/leaderboard-remaining-time.md) | Có       | Thời gian còn lại của tuần xếp hạng         |
 | `cheat/reset_leaderboard`                     | [cheat-reset-leaderboard.md](cheat/cheat-reset-leaderboard.md)             | Có       | Reset bảng xếp hạng tuần *(dev only)*       |
+
+---
+
+## HTTP Endpoints (không qua WebSocket)
+
+Ngoài các handler `cmd` ở trên (giao tiếp qua WebSocket với envelope `rid`/`data`), server còn có một số endpoint HTTP thuần — gọi trực tiếp bằng `GET`/`POST` như REST API thông thường, xác thực bằng header `Authorization: Bearer <token>`.
+
+| Method + Path                 | File                                                   | Xác thực            | Mô tả                                         |
+|--------------------------------|---------------------------------------------------------|-----------------------|-------------------------------------------------|
+| `GET /gsort/level/config`     | [get-level-config.md](level/get-level-config.md)       | Có (`GAME_CLIENT`)   | Lấy file cấu hình level (theo `APP_STAGE`)     |
+| `POST /gsort/level/download`  | [download-level.md](level/download-level.md)           | Có (`GAME_CLIENT`)   | Tải nhiều file dữ liệu level, đóng gói zip     |
+| `GET /gsort/level/manifest`   | [get-level-manifest.md](level/get-level-manifest.md)   | Có (`GAME_CLIENT`)   | Lấy manifest level (tên file → md5 nội dung)   |
+
+> 📄 Quy trình đầy đủ client cần thực hiện để lấy & đồng bộ level (build-time + runtime): xem [client-level-sync-flow.md](level/client-level-sync-flow.md).
